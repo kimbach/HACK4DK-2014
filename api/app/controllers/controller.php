@@ -86,13 +86,14 @@ class Controller {
 
 	public function persons($f3, $params)
 	{
+		// echo print_r($_SERVER);
 		// Simply replace persons registerblade with w
 		$uri = $f3->get("URI");
 		$uri = str_replace("persons?", "registerblade?", $uri);
-		$url = $f3->get("PROTOCOL") . $f3->get("HOST") . $uri;
+		$url = $f3->get("PROTOCOL") . $_SERVER["HTTP_HOST"] . $uri;
 		$req = Web::instance()->request($url);
 		$resp = json_decode($req["body"]);
-		// echo json_encode($resp);
+
 		$persons = PRB::instance()->getPersonsForRegIds($resp);
 		$this->output($persons);
 
