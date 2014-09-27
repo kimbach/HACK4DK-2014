@@ -8,35 +8,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	
-	  <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      var kriterie = {};
-      kriterie['bredde'] = '55.700677';
-      kriterie['længde'] = '12.59074';
-      $.ajax({
-        url: 'http://webapi.aws.dk/adresser.json',
-        data: kriterie,
-        dataType: "jsonp",
-        error: fejlikommunikation,
-        jsonpCallback: 'visadresser'
-      });
-    });
 
-    function visadresser(adresser) {
-      $.each(adresser, function (i, adresse) {
-        $("#adresser").append("<p>" + adresse.vejnavn.navn + " " + adresse.husnr + " " + adresse.postnummer.nr + " " + adresse.postnummer.navn + "</p>");
-      });
-    }
+	  <!-- <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	      var kriterie = {};
+	      kriterie['bredde'] = '55.700677';
+	      kriterie['længde'] = '12.59074';
+	      $.ajax({
+	        url: 'http://webapi.aws.dk/adresser.json',
+	        data: kriterie,
+	        dataType: "jsonp",
+	        error: fejlikommunikation,
+	        jsonpCallback: 'visadresser'
+	      });
+	    });
 
-    function fejlikommunikation(xhr, status, errorThrown) {
-      $("fejl").append("<p>status: " + status + ", errorThrown: " + errorThrown + "</p>");
-    };
+	    function visadresser(adresser) {
+	      $.each(adresser, function (i, adresse) {
+	        $("#adresser").append("<p>" + adresse.vejnavn.navn + " " + adresse.husnr + " " + adresse.postnummer.nr + " " + adresse.postnummer.navn + "</p>");
+	      });
+	    }
 
-  </script>
+	    function fejlikommunikation(xhr, status, errorThrown) {
+	      $("fejl").append("<p>status: " + status + ", errorThrown: " + errorThrown + "</p>");
+	    };
 
-	
+  	</script>
+
+
 </head>
 <body>
 	<div id="map" style="width: 600px; height: 400px"></div>
@@ -75,32 +76,87 @@
 			// Parse the AWS reverse geocode search, there should be only one result
 			alert (this.responseText);
 		}
-		
+
 		function onMapClick(e) {
 			popup
 				.setLatLng(e.latlng)
 				.setContent("Du klikkede på " + e.latlng.lat + "," + e.latlng.lng)
 				.openOn(map);
 
-			// Call AWS for reverse geocode
-			$.ajax({
-			     url:"http://webapi.aws.dk/adresser/55.700677,12.59074.json",
-			     dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
-			     success:function(json){
-			         // do stuff with json (in this case an array)
-			         alert("Success");
-					 alert(json.vejnavn.navn);
-			     },
-			     error:function(){
-			         alert("Error");
-			     }      
-			});    	
-}
+			var coord = e.latlng;
+
+			getRoad(coord)
+			  .then(function(roadJson){
+			  	husnr = roadJson.husnr;
+				return getRoadId(roadJson);
+
+			}).then(function(roadIdJson){
+				console.log(roadIdJson);
+				return getRegisterBlad(roadIdJson[0].id, roadIdJson[0].husnr);
+
+			}).done(function(registerBladJson){
+				console.log(registerBladJson);
+			});
+
+
+		}
 
 		map.on('click', onMapClick);
 
+		function getRoad(coordinate) {
+			return $.ajax({
+			     url:"http://webapi.aws.dk/adresser/" + coordinate.lat + "," + coordinate.lng + ".json",
+			     dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+			  //    success:function(json){
+			  //       // do stuff with json (in this case an array)
+
+			  //       var name = json.vejnavn.navn;
+					// console.log(name);
+					// var roadId = getRoadId(name)
+			  //    },
+			     error:function(){
+			        alert("Error");
+			     }
+			});
+		}
+
+		function getRoadId(roadJson) {
+			var roadName = roadJson.vejnavn.navn;
+			var apiString =
+				"http://www.politietsregisterblade.dk/api/1/?type=road&name="+ roadName +"&limitstart=0&limit=1";
+			console.log("Querying: " + apiString);
+
+			var promise = $.ajax({
+				url: apiString,
+				dataType: "jsonp",
+				success: function(json) {
+					json[0].husnr = roadJson.husnr;
+					return json;
+				},
+				error: function(err) {
+					alert(err);
+				}
+			});
+
+			return promise;
+		}
+
+		function getRegisterBlad(roadId, roadNumber) {
+			var apiString = "http://www.politietsregisterblade.dk/api/1/?type=address&road_id=" +
+						    roadId + "&number=" + roadNumber;
+		    console.log(apiString);
+			var promise = $.ajax({
+				url: apiString,
+				dataType: "jsonp"
+
+			});
+
+			return promise;
+		}
+
+
 </script>
-	
+
 	  <div id='adresser'>
   </div>
   <div id='fejl'>
