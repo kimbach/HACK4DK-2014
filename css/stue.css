@@ -1,0 +1,71 @@
+.version.stue /* version checker */
+{
+	color: #000018;
+	background-color: #9F4109;
+}
+
+.html
+{
+	background-color: #FFFFFF;
+}
+
+#page
+{
+	z-index: 1;
+	width: 1280px;
+	min-height: 738px;
+	background-image: none;
+	border-style: none;
+	border-color: #000000;
+	background-color: transparent;
+	padding-bottom: 62px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#u125
+{
+	z-index: 2;
+	width: 1280px;
+	background-color: transparent;
+	position: relative;
+	margin-right: -10000px;
+}
+
+#u122
+{
+	z-index: 4;
+	width: 1280px;
+	background-color: transparent;
+	position: relative;
+	margin-right: -10000px;
+	margin-top: 1px;
+}
+
+#u304
+{
+	z-index: 6;
+	width: 940px;
+	height: 545px;
+	background-color: transparent;
+	position: relative;
+	margin-right: -10000px;
+	margin-top: 18px;
+	left: 141px;
+}
+
+#U306_animation
+{
+	width: 940px;
+	height: 545px;
+	border: none;
+}
+
+body
+{
+	position: relative;
+	min-width: 1280px;
+	padding-top: 36px;
+	padding-bottom: 36px;
+}
+
