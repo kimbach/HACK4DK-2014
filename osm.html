@@ -105,18 +105,11 @@
 
 		function getRoad(coordinate) {
 			return $.ajax({
-			     url:"http://webapi.aws.dk/adresser/" + coordinate.lat + "," + coordinate.lng + ".json",
-			     dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
-			  //    success:function(json){
-			  //       // do stuff with json (in this case an array)
-
-			  //       var name = json.vejnavn.navn;
-					// console.log(name);
-					// var roadId = getRoadId(name)
-			  //    },
-			     error:function(){
-			        alert("Error");
-			     }
+				url:"http://webapi.aws.dk/adresser/" + coordinate.lat + "," + coordinate.lng + ".json",
+				dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+				error:function(){
+					alert("Error");
+				}
 			});
 		}
 
@@ -124,7 +117,7 @@
 			var roadName = roadJson.vejnavn.navn;
 			var apiString =
 				"http://www.politietsregisterblade.dk/api/1/?type=road&name="+ roadName +"&limitstart=0&limit=1";
-			console.log("Querying: " + apiString);
+			// console.log("Querying: " + apiString);
 
 			var promise = $.ajax({
 				url: apiString,
@@ -144,7 +137,7 @@
 		function getRegisterBlad(roadId, roadNumber) {
 			var apiString = "http://www.politietsregisterblade.dk/api/1/?type=address&road_id=" +
 						    roadId + "&number=" + roadNumber;
-		    console.log(apiString);
+		    // console.log(apiString);
 			var promise = $.ajax({
 				url: apiString,
 				dataType: "jsonp"
@@ -152,6 +145,10 @@
 			});
 
 			return promise;
+		}
+
+		function getPersonsByRegisterBlad(regId) {
+			var apiString = "http://www.politietsregisterblade.dk/api/1/?type=person&registerblad_id=" + regId;
 		}
 
 
