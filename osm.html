@@ -88,6 +88,7 @@
 			getRoad(coord)
 			  .then(function(roadJson){
 			  	husnr = roadJson.husnr;
+			  	console.log(roadJson);
 				return getRoadId(roadJson);
 
 			}).then(function(roadIdJson){
