@@ -1,0 +1,3 @@
+[submodule "api/app/lib/CIP-PHP-Client"]
+	path = api/app/lib/CIP-PHP-Client
+	url = https://github.com/NationalMuseumofDenmark/CIP-PHP-Client.git

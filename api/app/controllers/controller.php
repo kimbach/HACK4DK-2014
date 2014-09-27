@@ -24,10 +24,9 @@ class Controller {
 
 	public function beforeroute($f3)
 	{
-		$protocol = "";
-		if($f3->get("PORT") == 80)
-			$protocol = "http://";
-		elseif($f3->get("PORT") == 443)
+		$protocol = "http://";
+
+		if($f3->get("PORT") == 443)
 			$protocol = "https://";
 
 		$f3->set("PROTOCOL", $protocol);
