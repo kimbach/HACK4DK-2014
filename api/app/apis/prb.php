@@ -55,9 +55,12 @@ class PRB extends API
 	public function getPersonsForRegIds(array $ids)
 	{
 		$persons = array();
-		for($i = 0, $len = count($ids) -1; $i < $len; $i++) // Skip last item
+		for($i = 0, $len = count($ids); $i < $len; $i++)
 		{
-			$persons[] = $this->getPersonsByRegId($ids[$i]->registerblad_id);
+			$ps = $this->getPersonsByRegId($ids[$i]->registerblad_id);
+			if(count($ps) > 1)
+				array_pop($ps); // pop stupid "result" object
+			$persons[] = $ps;
 		}
 		return $persons;
 	}
@@ -74,7 +77,7 @@ class PRB extends API
 	}
 
 
-	public function getRegisterBladesByDate(array $blade, \DateTime $theDate)
+	public function getRegisterBladeByDate(array $blade, \DateTime $theDate)
 	{
 		$result = array();
 		foreach ($blade as $b)
@@ -98,6 +101,39 @@ class PRB extends API
 				$result[] = $b;
 		}
 
+		return $result;
+	}
+
+	public function filterRegisterBladeByFloor(array $blade, $floor)
+	{
+		$result = array();
+		foreach ($blade as $b)
+		{
+			if($b->floor == $floor)
+				$result[] = $b;
+		}
+		return $result;
+	}
+
+	public function filterRegisterBladeByLetter(array $blade, $letter)
+	{
+		$result = array();
+		foreach ($blade as $b)
+		{
+			if($b->letter == $letter)
+				$result[] = $b;
+		}
+		return $result;
+	}
+
+	public function filterRegisterBladeBySide(array $blade, $side)
+	{
+		$result = array();
+		foreach ($blade as $b)
+		{
+			if($b->side == $side)
+				$result[] = $b;
+		}
 		return $result;
 	}
 }

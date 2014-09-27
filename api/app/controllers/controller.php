@@ -22,7 +22,16 @@ class Controller {
 		$this->f3 = $f3;
 	}
 
-	public function beforeroute($f3){}
+	public function beforeroute($f3)
+	{
+		$protocol = "";
+		if($f3->get("PORT") == 80)
+			$protocol = "http://";
+		elseif($f3->get("PORT") == 443)
+			$protocol = "https://";
+
+		$f3->set("PROTOCOL", $protocol);
+	}
 	public function afterroute($f3){}
 
 	public function home($f3, $params)
@@ -43,21 +52,51 @@ class Controller {
 			$to = isset($get["to"]) ? new DateTime($get["to"]) : new DateTime(); // now
 			$result = PRB::instance()->filterRegisterBladeByDates($result, $from, $to);
 		}
-		if(isset($get["date"]))
+		elseif(isset($get["date"]))
 		{
-			$result = PRB::instance()->getRegisterBladesByDate($result, new DateTime($get["date"]));
+			$result = PRB::instance()->getRegisterBladeByDate($result, new DateTime($get["date"]));
 		}
+
+		if(isset($get["floor"]))
+		{
+			$floor = isset($get["floor"]) ? $get["floor"] : "";
+			if(is_numeric($floor) && substr($floor, -1) != ".")
+			{
+				$floor .= "."; // add . e.g. floor: 3. (for 3rd)
+			}
+
+			$result = PRB::instance()->filterRegisterBladeByFloor($result, $floor);
+		}
+		if(isset($get["letter"]))
+		{
+			$result = PRB::instance()->filterRegisterBladeByFloor($result, $get["letter"]);
+		}
+		if(isset($get["side"]))
+		{
+			$side = $get["side"];
+			$last = substr($side, -1);
+			if($last != ".") $side .= ".";
+
+			$result = PRB::instance()->filterRegisterBladeBySide($result, $side);
+		}
+
+
 
 		$this->output($result);
 	}
 
 	public function persons($f3, $params)
 	{
-		$get = $f3->get("GET");
-		$rb = PRB::instance()->getRegisterBladeByCoord($get["lat"], $get["lng"]);
-
-		$persons = PRB::instance()->getPersonsForRegIds($rb);
+		// Simply replace persons registerblade with w
+		$uri = $f3->get("URI");
+		$uri = str_replace("persons?", "registerblade?", $uri);
+		$url = $f3->get("PROTOCOL") . $f3->get("HOST") . $uri;
+		$req = Web::instance()->request($url);
+		$resp = json_decode($req["body"]);
+		// echo json_encode($resp);
+		$persons = PRB::instance()->getPersonsForRegIds($resp);
 		$this->output($persons);
+
 	}
 
 
