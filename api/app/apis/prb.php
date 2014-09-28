@@ -54,15 +54,13 @@ class PRB extends API
 
 	public function getPersonsForRegIds(array $ids)
 	{
-		$persons = array();
 		for($i = 0, $len = count($ids); $i < $len; $i++)
 		{
 			$ps = $this->getPersonsByRegId($ids[$i]->registerblad_id);
-			if(count($ps) > 1)
-				array_pop($ps); // pop stupid "result" object
-			$persons[] = $ps;
+
+			$ids[$i]->persons = $ps;
 		}
-		return $persons;
+		return $ids;
 	}
 
 	/**
@@ -73,7 +71,10 @@ class PRB extends API
 	{
 		$apiString = $this->host . "type=person&registerblad_id=" .
 					  urlencode($id);
-		return json_decode($this->request($apiString));
+		$result = json_decode($this->request($apiString));
+		if(count($result) > 1)
+			array_pop($result);
+		return $result;
 	}
 
 

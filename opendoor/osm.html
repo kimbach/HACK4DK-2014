@@ -80,11 +80,11 @@
 		function onMapClick(e) {
 
 			var newhref= window.location.href.substring(0, window.location.href.lastIndexOf("/")) +
-						 "/outside-door.html";
+						 "/outside-door.php";
 
 			var lat = e.latlng.lat;
 			var lng = e.latlng.lng;
-			window.location.href = newhref + "?lat=" + lat + "&lng=" + lng + "&limit=1";
+			window.location.href = newhref + "?lat=" + lat + "&lng=" + lng + "&floor=1";
 
 
 			// popup

@@ -11,11 +11,16 @@ function toggleAnimation(elem, event, attrs, onActivate, onDeactivate) {
 	}
 	elem.on(event, function(e){
 		if(!active) {
-			elem.animate(attrs);
+			elem.animate(attrs, {
+				complete: function(){elem.addClass("active");}
+			});
+
 			if(onActivate != null) (onActivate(e, elem));
 			active = true;
 		} else {
-			elem.animate(origAttrs);
+			elem.animate(origAttrs, {
+				complete: function(){elem.removeClass("active");}
+			});
 			if(onDeactivate != null) (onDeactivate(e, elem));
 			active = false;
 		}

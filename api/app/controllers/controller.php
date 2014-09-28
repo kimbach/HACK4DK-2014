@@ -99,6 +99,13 @@ class Controller {
 
 	}
 
+	public function person($f3, $params)
+	{
+		$regId = $params["regId"];
+		$resp = PRB::instance()->getPersonsByRegId($regId);
+		$this->output($resp);
+	}
+
 
 	// ---- Utils ----- //
 
