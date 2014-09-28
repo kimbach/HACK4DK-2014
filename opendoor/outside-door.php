@@ -86,42 +86,6 @@
 			width: 30px;
 			margin: 0 auto;
 		}
-/*		#spinner {
-			width: 30px;
-		    height: 30px;
-		    background-image: url("images/spiffygif_30x30.png");
-
-		    -webkit-animation: play .8s steps(10) infinite;
-		       -moz-animation: play .8s steps(10) infinite;
-		        -ms-animation: play .8s steps(10) infinite;
-		         -o-animation: play .8s steps(10) infinite;
-		            animation: play .8s steps(10) infinite;
-		}
-
-		@-webkit-keyframes play {
-		   from { background-position:    0px; }
-		     to { background-position: 	  570px; }
-		}
-
-		@-moz-keyframes play {
-		   from { background-position:    0px; }
-		     to { background-position: 	  570px; }
-		}
-
-		@-ms-keyframes play {
-		   from { background-position:    0px; }
-		     to { background-position: 	  570px; }
-		}
-
-		@-o-keyframes play {
-		   from { background-position:    0px; }
-		     to { background-position: 	  570px; }
-		}
-
-		@keyframes play {
-		   from { background-position:    0px; }
-		     to { background-position: 	  570px; }
-		}*/
 
 
 	</style>
@@ -169,7 +133,9 @@
 		$(document).ready(function(){
 
 			// get data
-			var api = "http://" + window.location.host + "/HACK4DK-2014/api/";
+			var path = window.location.pathname;
+			var host = window.location.host;
+			var api = "http://" + host + path.substring(0, path.lastIndexOf("/")) + "/../api/";
 
 			var endpoint = api + "persons" + getQueryString();
 			console.log(endpoint);
