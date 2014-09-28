@@ -35,7 +35,7 @@ class Controller {
 
 	public function home($f3, $params)
 	{
-		echo "Home!";
+		$natmus = \APIs\Natmus::instance();
 	}
 
 	// ---- Routes ---- //
@@ -86,8 +86,7 @@ class Controller {
 
 	public function persons($f3, $params)
 	{
-		// echo print_r($_SERVER);
-		// Simply replace persons registerblade with w
+
 		$uri = $f3->get("URI");
 		$uri = str_replace("persons?", "registerblade?", $uri);
 		$url = $f3->get("PROTOCOL") . $_SERVER["HTTP_HOST"] . $uri;
@@ -101,11 +100,6 @@ class Controller {
 
 
 	// ---- Utils ----- //
-
-
-
-
-
 
 
 	protected function output($out)

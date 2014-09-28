@@ -9,7 +9,7 @@ if ((float)PCRE_VERSION<7.9)
 $f3->config('config.ini');
 $f3->config('routes.ini');
 
-// require("./app/lib/CIP-PHP-Client/vendor/autoload.php");
+
 
 // $f3->route('GET /',
 // 	function($f3) {

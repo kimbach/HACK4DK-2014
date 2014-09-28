@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Quick Start Guide Example</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+	  <!-- <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	      var kriterie = {};
+	      kriterie['bredde'] = '55.700677';
+	      kriterie['længde'] = '12.59074';
+	      $.ajax({
+	        url: 'http://webapi.aws.dk/adresser.json',
+	        data: kriterie,
+	        dataType: "jsonp",
+	        error: fejlikommunikation,
+	        jsonpCallback: 'visadresser'
+	      });
+	    });
+
+	    function visadresser(adresser) {
+	      $.each(adresser, function (i, adresse) {
+	        $("#adresser").append("<p>" + adresse.vejnavn.navn + " " + adresse.husnr + " " + adresse.postnummer.nr + " " + adresse.postnummer.navn + "</p>");
+	      });
+	    }
+
+	    function fejlikommunikation(xhr, status, errorThrown) {
+	      $("fejl").append("<p>status: " + status + ", errorThrown: " + errorThrown + "</p>");
+	    };
+
+  	</script>
+
+
+</head>
+<body>
+	<div id="map" style="width: 600px; height: 400px"></div>
+	<script>
+		var map = L.map('map');
+
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+
+		function onLocationFound(e) {
+			var radius = e.accuracy / 2;
+
+			L.marker(e.latlng).addTo(map)
+				.bindPopup("Du er ca. " + radius + " meter fra dette punkt").openPopup();
+
+			L.circle(e.latlng, radius).addTo(map);
+		}
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+
+		map.locate({setView: true, maxZoom: 16});
+
+		var popup = L.popup();
+
+		function reqListenerAWS () {
+			// Parse the AWS reverse geocode search, there should be only one result
+			alert (this.responseText);
+		}
+
+		function onMapClick(e) {
+
+			var newhref= window.location.href.substring(0, window.location.href.lastIndexOf("/")) +
+						 "/outside-door.html";
+
+			var lat = e.latlng.lat;
+			var lng = e.latlng.lng;
+			window.location.href = newhref + "?lat=" + lat + "&lng=" + lng;
+
+			// popup
+			// 	.setLatLng(e.latlng)
+			// 	.setContent("Du klikkede på " + e.latlng.lat + "," + e.latlng.lng)
+			// 	.openOn(map);
+
+			// var coord = e.latlng;
+
+			// getRoad(coord)
+			//   .then(function(roadJson){
+			//   	husnr = roadJson.husnr;
+			//   	console.log(roadJson);
+			// 	return getRoadId(roadJson);
+
+			// }).then(function(roadIdJson){
+			// 	console.log(roadIdJson);
+			// 	return getRegisterBlad(roadIdJson[0].id, roadIdJson[0].husnr);
+
+			// }).done(function(registerBladJson){
+			// 	console.log(registerBladJson);
+			// });
+
+
+		}
+
+		map.on('click', onMapClick);
+
+		function getRoad(coordinate) {
+			return $.ajax({
+				url:"http://webapi.aws.dk/adresser/" + coordinate.lat + "," + coordinate.lng + ".json",
+				dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+				error:function(){
+					alert("Error");
+				}
+			});
+		}
+
+		function getRoadId(roadJson) {
+			var roadName = roadJson.vejnavn.navn;
+			var apiString =
+				"http://www.politietsregisterblade.dk/api/1/?type=road&name="+ roadName +"&limitstart=0&limit=1";
+			// console.log("Querying: " + apiString);
+
+			var promise = $.ajax({
+				url: apiString,
+				dataType: "jsonp",
+				success: function(json) {
+					json[0].husnr = roadJson.husnr;
+					return json;
+				},
+				error: function(err) {
+					alert(err);
+				}
+			});
+
+			return promise;
+		}
+
+		function getRegisterBlad(roadId, roadNumber) {
+			var apiString = "http://www.politietsregisterblade.dk/api/1/?type=address&road_id=" +
+						    roadId + "&number=" + roadNumber;
+		    // console.log(apiString);
+			var promise = $.ajax({
+				url: apiString,
+				dataType: "jsonp"
+
+			});
+
+			return promise;
+		}
+
+		function getPersonsByRegisterBlad(regId) {
+			var apiString = "http://www.politietsregisterblade.dk/api/1/?type=person&registerblad_id=" + regId;
+		}
+
+
+</script>
+
+	  <div id='adresser'>
+  </div>
+  <div id='fejl'>
+  </div>
+
+</body>
+</html>
