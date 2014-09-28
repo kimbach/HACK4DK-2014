@@ -32,10 +32,10 @@ class PRB extends API
 		return json_decode($this->request($apiString));
 	}
 
-	public function getRegisterBlade($roadId, $roadNumber)
+	public function getRegisterBlade($roadId, $roadNumber, $limit = 0)
 	{
 		$apiString = $this->host . "type=address&road_id=" .
-					    $roadId . "&number=" . $roadNumber;
+					    $roadId . "&number=" . $roadNumber . "&limit=" . $limit;
 	    // echo $apiString, "\n";
 		$result = json_decode($this->request($apiString));
 
@@ -44,11 +44,11 @@ class PRB extends API
 		return $result;
 	}
 
-	public function getRegisterBladeByCoord($lat, $lng)
+	public function getRegisterBladeByCoord($lat, $lng, $limit = 0)
 	{
 		$roadJSON = \APIs\AWS::instance()->getRoad($lat, $lng);
 		$idJSON = $this->getRoadId($roadJSON->vejnavn->navn);
-		$registerbladeJSON = $this->getRegisterBlade($idJSON[0]->id, $roadJSON->husnr);
+		$registerbladeJSON = $this->getRegisterBlade($idJSON[0]->id, $roadJSON->husnr, $limit);
 		return $registerbladeJSON;
 	}
 

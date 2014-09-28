@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Test</title>
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="utils.js"></script>
 	<style type="text/css">
 		#wrapper {
 			width: 1280px;
@@ -38,17 +39,27 @@
 			width: 100%;
 			height: 100%;
 			position: relative;
+			left: 0px;
+			cursor: pointer;
 		}
 
 		#plate {
-			background-color: #f5d662;
-			width: 95px;
-			height: 21px;
-			left: 110px;
-			top: 440px;
+			/*background-color: #f5d662;*/
+			background-image: url("images/door_sign_large.svg");
+			background-size: cover;
+			width: 245px;
+			height: 128px;
+			left: 500px;
+			top: -400px;
 			position: relative;
 			z-index: 3;
+			cursor: pointer;
+		}
 
+		#plate span {
+			padding: 20px;
+			display: block;
+			text-align: center;
 		}
 
 
@@ -58,20 +69,12 @@
 	<div id="wrapper">
 		<div id="wall">
 			<div id="door-wrapper">
-				<div id="door">
-					<div id="plate">
-						Hey
-					</div>
-				</div>
+				<div id="door"> </div>
 			</div>
+			<div id="plate"><span></span></div>
 		</div>
 	</div>
 	<script>
-
-		function getQueryString() {
-			var href = window.location.href;
-			return href.substring(href.lastIndexOf("?"), href.length);
-		}
 
 		$(document).ready(function(){
 
@@ -80,43 +83,34 @@
 			var endpoint = api + "persons" + getQueryString();
 			console.log(endpoint);
 			$.get(endpoint).done(function(data){
-				$("#plate").text(data[0][0].firstnames);
+				$("#plate span").text(data[0][0].firstnames + " " + data[0][0].lastname);
 			});
 
 
-			// console.log(endpoint);
+			toggleAnimation($("#door"), "click", {left: "-300px"});
+			toggleAnimation($("#plate"), "click",
+				{"width": "490px", "height": "256px", "font-size": "3em"}
+			);
 
-			var doorClicked = false;
-			$("#door").click(function(e){
-				if(doorClicked == false){
-					$("#door").animate({"left": "-300px"}, "slow");
-					doorClicked = true;
-				}
-				else {
-					$("#door").animate({"left": "0px"}, "slow");
-					doorClicked = false;
-				}
-			});
+			// var plateClicked = false;
+			// $("#plate").click(function(e){
+			// 	e.stopPropagation();
+			// 	if(plateClicked == false){
+			// 		$("#plate").animate();
+			// 		$("#door-wrapper").css("overflow", "inherit");
+			// 		plateClicked = true;
+			// 	} else {
+			// 		$("#plate").animate({"width": "95px", "height": "21px", "font-size": "1em"},
+			// 			400,
+			// 			"swing",
+			// 			function(){
+			// 				$("#door-wrapper").css("overflow", "hidden");
 
-			var plateClicked = false;
-			$("#plate").click(function(e){
-				e.stopPropagation();
-				if(plateClicked == false){
-					$("#plate").animate({"width": "380px", "height": "84px", "font-size": "3em"});
-					$("#door-wrapper").css("overflow", "inherit");
-					plateClicked = true;
-				} else {
-					$("#plate").animate({"width": "95px", "height": "21px", "font-size": "1em"},
-						400,
-						"swing",
-						function(){
-							$("#door-wrapper").css("overflow", "hidden");
-
-						}
-					);
-					plateClicked = false;
-				}
-			});
+			// 			}
+			// 		);
+			// 		plateClicked = false;
+			// 	}
+			// });
 		});
 	</script>
 </body>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test</title>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<style type="text/css">
+		#wrapper {
+			width: 1280px;
+			height: 800px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		#background {
+			background-image: url("images/STUE.png");
+			height: 100%;
+			z-index: 0;
+		}
+
+		#frames {
+			position: relative;
+			left: 748px;
+			top: 86px;
+		}
+
+		#frames #large {
+			background-image: url("images/FRAME_large.png");
+			width: 248px;
+			height: 150px;
+			position: relative;
+		}
+
+		#frames #curly {
+			background-image: url("images/FRAME_curly.png");
+			width: 147px;
+			height: 167px;
+			position: relative;
+			top: 30px;
+		}
+
+		#frames #small {
+			background-image: url("images/FRAME_small.png");
+			width: 117px;
+			height: 132px;
+			position: relative;
+			left: 168px;
+			top: -130px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="background">
+			<div id="frames">
+				<div id="large"></div>
+				<div id="curly"></div>
+				<div id="small"></div>
+			</div>
+			<!-- <div id="door-wrapper">
+				<div id="door">
+					<div id="plate">
+						Hey
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<script>
+
+		function getQueryString() {
+			var href = window.location.href;
+			return href.substring(href.lastIndexOf("?"), href.length);
+		}
+
+		$(document).ready(function(){
+
+			// get data
+			var api = "http://" + window.location.host + "/HACK4DK-2014/api/";
+			var endpoint = api + "persons" + getQueryString();
+			console.log(endpoint);
+			$.get(endpoint).done(function(data){
+				$("#plate").text(data[0][0].firstnames);
+			});
+
+
+			// console.log(endpoint);
+
+			var doorClicked = false;
+			$("#door").click(function(e){
+				if(doorClicked == false){
+					$("#door").animate({"left": "-300px"}, "slow");
+					doorClicked = true;
+				}
+				else {
+					$("#door").animate({"left": "0px"}, "slow");
+					doorClicked = false;
+				}
+			});
+
+			var plateClicked = false;
+			$("#plate").click(function(e){
+				e.stopPropagation();
+				if(plateClicked == false){
+					$("#plate").animate({"width": "380px", "height": "84px", "font-size": "3em"});
+					$("#door-wrapper").css("overflow", "inherit");
+					plateClicked = true;
+				} else {
+					$("#plate").animate({"width": "95px", "height": "21px", "font-size": "1em"},
+						400,
+						"swing",
+						function(){
+							$("#door-wrapper").css("overflow", "hidden");
+
+						}
+					);
+					plateClicked = false;
+				}
+			});
+		});
+	</script>
+</body>
+</html>

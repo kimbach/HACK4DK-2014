@@ -43,7 +43,8 @@ class Controller {
 	public function registerblade($f3, $params)
 	{
 		$get = $f3->get("GET");
-		$result = PRB::instance()->getRegisterBladeByCoord($get["lat"], $get["lng"]);
+		$limit = isset($get["limit"]) ? $get["limit"] : 0;
+		$result = PRB::instance()->getRegisterBladeByCoord($get["lat"], $get["lng"], $limit);
 
 		if(isset($get["from"]) || isset($get["to"]))
 		{
