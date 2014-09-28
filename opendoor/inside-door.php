@@ -62,7 +62,8 @@
 			height: 110px;
 			position: relative;
 			background-size: cover;
-			left: 750px;
+			/*left: 750px;*/
+			top: 210px;
 			z-index: 2;
 		}
 
@@ -81,8 +82,8 @@
 			height: 200px;
 			width: 200px;
 			position: relative;
-			left: 800px;
-			top: -300px;
+			left: 70px;
+			top: -80px;
 			background-size: cover;
 		}
 

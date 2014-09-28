@@ -2,14 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leaflet Quick Start Guide Example</title>
+	<title>OpenDoor</title>
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
-	  <!-- <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript">
 	    $(function () {
@@ -87,28 +85,6 @@
 			window.location.href = newhref + "?lat=" + lat + "&lng=" + lng + "&floor=1";
 
 
-			// popup
-			// 	.setLatLng(e.latlng)
-			// 	.setContent("Du klikkede på " + e.latlng.lat + "," + e.latlng.lng)
-			// 	.openOn(map);
-
-			// var coord = e.latlng;
-
-			// getRoad(coord)
-			//   .then(function(roadJson){
-			//   	husnr = roadJson.husnr;
-			//   	console.log(roadJson);
-			// 	return getRoadId(roadJson);
-
-			// }).then(function(roadIdJson){
-			// 	console.log(roadIdJson);
-			// 	return getRegisterBlad(roadIdJson[0].id, roadIdJson[0].husnr);
-
-			// }).done(function(registerBladJson){
-			// 	console.log(registerBladJson);
-			// });
-
-
 		}
 
 		map.on('click', onMapClick);
@@ -127,7 +103,6 @@
 			var roadName = roadJson.vejnavn.navn;
 			var apiString =
 				"http://www.politietsregisterblade.dk/api/1/?type=road&name="+ roadName +"&limitstart=0&limit=1";
-			// console.log("Querying: " + apiString);
 
 			var promise = $.ajax({
 				url: apiString,
