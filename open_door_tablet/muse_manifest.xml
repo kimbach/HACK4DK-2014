@@ -1,0 +1,237 @@
+<manifest alg="2" build="6" opt="true" iceEnabled="true" exportTarget="other" resolutions="1x" timestamp="1411915146867">
+  <folder name="css">
+    <file name="site_global.css" crc="426517801"/>
+    <file name="index.css" crc="237511782" ref="index"/>
+    <file name="stue.css" crc="4003294032" ref="stue"/>
+  </folder>
+  <folder name="assets">
+    <folder name="fr82">
+      <folder name="edge_includes">
+        <file name="edge.4.0.1.min.js" crc="406902207" mt="1411906917000"/>
+        <file name="jquery-2.0.3.min.js" crc="4065232848" mt="1411906917000"/>
+      </folder>
+      <folder name="images">
+        <folder name="images">
+          <file name="green_apple.png" crc="333385286" mt="1411906917000"/>
+          <file name="red_apple.png" crc="374834338" mt="1411906917000"/>
+          <file name="sliced_apples_01.gif" crc="140736451" mt="1411906917000"/>
+          <file name="sliced_apples_02.gif" crc="3798343778" mt="1411906917000"/>
+          <file name="sliced_apples_04.gif" crc="359874946" mt="1411906917000"/>
+          <file name="sliced_apples_05.gif" crc="172825719" mt="1411906917000"/>
+          <file name="sliced_apples_07.gif" crc="4267232060" mt="1411906917000"/>
+          <file name="sliced_apples_08.gif" crc="3766436192" mt="1411906917000"/>
+          <file name="sliced_apples_09.gif" crc="422572084" mt="1411906917000"/>
+        </folder>
+        <folder name="billeder">
+          <file name="red_apple.png" crc="44643850" mt="1411906917000"/>
+          <file name="sliced_apples_01.png" crc="3832880004" mt="1411906917000"/>
+          <file name="sliced_apples_02.png" crc="3862805625" mt="1411906917000"/>
+          <file name="sliced_apples_04.png" crc="4016510733" mt="1411906917000"/>
+          <file name="sliced_apples_05.png" crc="259223754" mt="1411906917000"/>
+          <file name="sliced_apples_06.png" crc="290877409" mt="1411906917000"/>
+          <file name="sliced_apples_07.png" crc="4289733268" mt="1411906917000"/>
+          <file name="sliced_apples_08.png" crc="339689334" mt="1411906917000"/>
+        </folder>
+        <file name="1200.jpg" crc="3879869364" mt="1411906917000"/>
+        <file name="eksempel_stamtrae.jpg" crc="4169052555" mt="1411906917000"/>
+        <file name="eksempel_stamtræ.jpg" crc="4169052555" mt="1411906917000"/>
+        <file name="Frederik_VIII_of_Denmark_1909.png" crc="4010517813" mt="1411906917000"/>
+        <file name="green_apple.png" crc="4137382676" mt="1411906917000"/>
+        <file name="icon.png" crc="266806191" mt="1411906917000"/>
+        <file name="Poster.png" crc="4173332244" mt="1411906917000"/>
+        <file name="Poster10.png" crc="429153036" mt="1411906917000"/>
+        <file name="Poster11.png" crc="429153036" mt="1411906917000"/>
+        <file name="Poster12.png" crc="4183788646" mt="1411906917000"/>
+        <file name="Poster13.png" crc="37180199" mt="1411906917000"/>
+        <file name="Poster14.png" crc="4035388768" mt="1411906917000"/>
+        <file name="Poster15.png" crc="3775523249" mt="1411906917000"/>
+        <file name="Poster16.png" crc="3775523249" mt="1411906917000"/>
+        <file name="Poster17.png" crc="3760182147" mt="1411906917000"/>
+        <file name="Poster18.png" crc="266806191" mt="1411906917000"/>
+        <file name="Poster19.png" crc="72626018" mt="1411906917000"/>
+        <file name="Poster2.png" crc="4173332244" mt="1411906917000"/>
+        <file name="Poster3.png" crc="4173332244" mt="1411906917000"/>
+        <file name="Poster4.png" crc="3984821814" mt="1411906917000"/>
+        <file name="Poster5.png" crc="37180199" mt="1411906917000"/>
+        <file name="Poster6.png" crc="4035388768" mt="1411906917000"/>
+        <file name="Poster7.png" crc="3777802068" mt="1411906917000"/>
+        <file name="Poster8.png" crc="429153036" mt="1411906917000"/>
+        <file name="Poster9.png" crc="429153036" mt="1411906917000"/>
+        <file name="red_apple.png" crc="509423605" mt="1411906917000"/>
+        <file name="sliced_apples.png" crc="4137382676" mt="1411906917000"/>
+        <file name="animated_apple.gif" crc="430939702" mt="1411906917000"/>
+        <file name="background.svg" crc="3877589229" mt="1411906917000"/>
+        <file name="curly_frame.svg" crc="174391741" mt="1411906917000"/>
+        <file name="door-01.svg" crc="374138552" mt="1411906917000"/>
+        <file name="DOOR_SIGN.svg" crc="38351980" mt="1411906917000"/>
+        <file name="large_frame_pic-01.svg" crc="4202359597" mt="1411906917000"/>
+        <file name="shiny_apple.gif" crc="168004585" mt="1411906917000"/>
+        <file name="small_frame.svg" crc="15009054" mt="1411906917000"/>
+      </folder>
+      <file name="fr8_edge.js" crc="4026871213" mt="1411906917000"/>
+      <file name="fr8_edgeActions.js" crc="3844871283" mt="1411906917000"/>
+      <file name="fr8_edgePreload.js" crc="3906571212" mt="1411906917000"/>
+      <file name="fr8.html" crc="134706390" mt="1411906917000"/>
+    </folder>
+    <folder name="stamtrae">
+      <folder name="edge_includes">
+        <file name="edge.4.0.1.min.js" crc="406902207" mt="1411906599000"/>
+        <file name="jquery-2.0.3.min.js" crc="4065232848" mt="1411906599000"/>
+      </folder>
+      <folder name="images">
+        <folder name="images">
+          <file name="green_apple.png" crc="333385286" mt="1411906599000"/>
+          <file name="red_apple.png" crc="374834338" mt="1411906599000"/>
+          <file name="sliced_apples_01.gif" crc="140736451" mt="1411906599000"/>
+          <file name="sliced_apples_02.gif" crc="3798343778" mt="1411906599000"/>
+          <file name="sliced_apples_04.gif" crc="359874946" mt="1411906599000"/>
+          <file name="sliced_apples_05.gif" crc="172825719" mt="1411906599000"/>
+          <file name="sliced_apples_07.gif" crc="4267232060" mt="1411906599000"/>
+          <file name="sliced_apples_08.gif" crc="3766436192" mt="1411906599000"/>
+          <file name="sliced_apples_09.gif" crc="422572084" mt="1411906599000"/>
+        </folder>
+        <folder name="billeder">
+          <file name="red_apple.png" crc="44643850" mt="1411906599000"/>
+          <file name="sliced_apples_01.png" crc="3832880004" mt="1411906599000"/>
+          <file name="sliced_apples_02.png" crc="3862805625" mt="1411906599000"/>
+          <file name="sliced_apples_04.png" crc="4016510733" mt="1411906599000"/>
+          <file name="sliced_apples_05.png" crc="259223754" mt="1411906599000"/>
+          <file name="sliced_apples_06.png" crc="290877409" mt="1411906599000"/>
+          <file name="sliced_apples_07.png" crc="4289733268" mt="1411906599000"/>
+          <file name="sliced_apples_08.png" crc="339689334" mt="1411906599000"/>
+        </folder>
+        <file name="1200.jpg" crc="3879869364" mt="1411906599000"/>
+        <file name="eksempel_stamtrae.jpg" crc="4169052555" mt="1411906599000"/>
+        <file name="eksempel_stamtræ.jpg" crc="4169052555" mt="1411906599000"/>
+        <file name="Frederik_VIII_of_Denmark_1909.png" crc="4010517813" mt="1411906599000"/>
+        <file name="green_apple.png" crc="4137382676" mt="1411906599000"/>
+        <file name="icon.png" crc="72626018" mt="1411906599000"/>
+        <file name="Poster.png" crc="4173332244" mt="1411906599000"/>
+        <file name="Poster10.png" crc="429153036" mt="1411906599000"/>
+        <file name="Poster11.png" crc="429153036" mt="1411906599000"/>
+        <file name="Poster12.png" crc="4183788646" mt="1411906599000"/>
+        <file name="Poster13.png" crc="37180199" mt="1411906599000"/>
+        <file name="Poster14.png" crc="4035388768" mt="1411906599000"/>
+        <file name="Poster15.png" crc="3775523249" mt="1411906599000"/>
+        <file name="Poster16.png" crc="3775523249" mt="1411906599000"/>
+        <file name="Poster17.png" crc="3760182147" mt="1411906599000"/>
+        <file name="Poster18.png" crc="266806191" mt="1411906599000"/>
+        <file name="Poster19.png" crc="72626018" mt="1411906599000"/>
+        <file name="Poster2.png" crc="4173332244" mt="1411906599000"/>
+        <file name="Poster3.png" crc="4173332244" mt="1411906599000"/>
+        <file name="Poster4.png" crc="3984821814" mt="1411906599000"/>
+        <file name="Poster5.png" crc="37180199" mt="1411906599000"/>
+        <file name="Poster6.png" crc="4035388768" mt="1411906599000"/>
+        <file name="Poster7.png" crc="3777802068" mt="1411906599000"/>
+        <file name="Poster8.png" crc="429153036" mt="1411906599000"/>
+        <file name="Poster9.png" crc="429153036" mt="1411906599000"/>
+        <file name="red_apple.png" crc="509423605" mt="1411906599000"/>
+        <file name="sliced_apples.png" crc="4137382676" mt="1411906599000"/>
+        <file name="animated_apple.gif" crc="430939702" mt="1411906599000"/>
+        <file name="background.svg" crc="3877589229" mt="1411906599000"/>
+        <file name="curly_frame.svg" crc="174391741" mt="1411906599000"/>
+        <file name="door-01.svg" crc="374138552" mt="1411906599000"/>
+        <file name="DOOR_SIGN.svg" crc="38351980" mt="1411906599000"/>
+        <file name="large_frame_pic-01.svg" crc="4202359597" mt="1411906599000"/>
+        <file name="shiny_apple.gif" crc="168004585" mt="1411906599000"/>
+        <file name="small_frame.svg" crc="15009054" mt="1411906599000"/>
+      </folder>
+      <file name="stamtrae_edge.js" crc="492047828" mt="1411906599000"/>
+      <file name="stamtrae_edgeActions.js" crc="42850919" mt="1411906599000"/>
+      <file name="stamtrae_edgePreload.js" crc="163107428" mt="1411906599000"/>
+      <file name="stamtrae.html" crc="71850401" mt="1411906599000"/>
+    </folder>
+    <folder name="fr8">
+      <folder name="edge_includes">
+        <file name="edge.4.0.1.min.js" crc="406902207" mt="1411905100000"/>
+        <file name="jquery-2.0.3.min.js" crc="4065232848" mt="1411905100000"/>
+      </folder>
+      <folder name="images">
+        <folder name="images">
+          <file name="green_apple.png" crc="333385286" mt="1411905100000"/>
+          <file name="red_apple.png" crc="374834338" mt="1411905100000"/>
+          <file name="sliced_apples_01.gif" crc="140736451" mt="1411905100000"/>
+          <file name="sliced_apples_02.gif" crc="3798343778" mt="1411905100000"/>
+          <file name="sliced_apples_04.gif" crc="359874946" mt="1411905100000"/>
+          <file name="sliced_apples_05.gif" crc="172825719" mt="1411905100000"/>
+          <file name="sliced_apples_07.gif" crc="4267232060" mt="1411905100000"/>
+          <file name="sliced_apples_08.gif" crc="3766436192" mt="1411905100000"/>
+          <file name="sliced_apples_09.gif" crc="422572084" mt="1411905100000"/>
+        </folder>
+        <folder name="billeder">
+          <file name="red_apple.png" crc="44643850" mt="1411905100000"/>
+          <file name="sliced_apples_01.png" crc="3832880004" mt="1411905100000"/>
+          <file name="sliced_apples_02.png" crc="3862805625" mt="1411905100000"/>
+          <file name="sliced_apples_04.png" crc="4016510733" mt="1411905100000"/>
+          <file name="sliced_apples_05.png" crc="259223754" mt="1411905100000"/>
+          <file name="sliced_apples_06.png" crc="290877409" mt="1411905100000"/>
+          <file name="sliced_apples_07.png" crc="4289733268" mt="1411905100000"/>
+          <file name="sliced_apples_08.png" crc="339689334" mt="1411905100000"/>
+        </folder>
+        <file name="1200.jpg" crc="3879869364" mt="1411905100000"/>
+        <file name="eksempel_stamtrae.jpg" crc="4169052555" mt="1411905100000"/>
+        <file name="eksempel_stamtræ.jpg" crc="4169052555" mt="1411905100000"/>
+        <file name="Frederik_VIII_of_Denmark_1909.png" crc="4010517813" mt="1411905100000"/>
+        <file name="green_apple.png" crc="4137382676" mt="1411905100000"/>
+        <file name="icon.png" crc="266806191" mt="1411905100000"/>
+        <file name="Poster.png" crc="4173332244" mt="1411905100000"/>
+        <file name="Poster10.png" crc="429153036" mt="1411905100000"/>
+        <file name="Poster11.png" crc="429153036" mt="1411905100000"/>
+        <file name="Poster12.png" crc="4183788646" mt="1411905100000"/>
+        <file name="Poster13.png" crc="37180199" mt="1411905100000"/>
+        <file name="Poster14.png" crc="4035388768" mt="1411905100000"/>
+        <file name="Poster15.png" crc="3775523249" mt="1411905100000"/>
+        <file name="Poster16.png" crc="3775523249" mt="1411905100000"/>
+        <file name="Poster17.png" crc="3760182147" mt="1411905100000"/>
+        <file name="Poster18.png" crc="266806191" mt="1411905100000"/>
+        <file name="Poster19.png" crc="72626018" mt="1411905100000"/>
+        <file name="Poster2.png" crc="4173332244" mt="1411905100000"/>
+        <file name="Poster3.png" crc="4173332244" mt="1411905100000"/>
+        <file name="Poster4.png" crc="3984821814" mt="1411905100000"/>
+        <file name="Poster5.png" crc="37180199" mt="1411905100000"/>
+        <file name="Poster6.png" crc="4035388768" mt="1411905100000"/>
+        <file name="Poster7.png" crc="3777802068" mt="1411905100000"/>
+        <file name="Poster8.png" crc="429153036" mt="1411905100000"/>
+        <file name="Poster9.png" crc="429153036" mt="1411905100000"/>
+        <file name="red_apple.png" crc="509423605" mt="1411905100000"/>
+        <file name="sliced_apples.png" crc="4137382676" mt="1411905100000"/>
+        <file name="animated_apple.gif" crc="430939702" mt="1411905100000"/>
+        <file name="background.svg" crc="3877589229" mt="1411905100000"/>
+        <file name="curly_frame.svg" crc="174391741" mt="1411905100000"/>
+        <file name="door-01.svg" crc="374138552" mt="1411905100000"/>
+        <file name="DOOR_SIGN.svg" crc="38351980" mt="1411905100000"/>
+        <file name="large_frame_pic-01.svg" crc="4202359597" mt="1411905100000"/>
+        <file name="shiny_apple.gif" crc="168004585" mt="1411905100000"/>
+        <file name="small_frame.svg" crc="15009054" mt="1411905100000"/>
+      </folder>
+      <file name="fr8_edge.js" crc="4026871213" mt="1411905100000"/>
+      <file name="fr8_edgeActions.js" crc="3844871283" mt="1411905100000"/>
+      <file name="fr8_edgePreload.js" crc="3906571212" mt="1411905100000"/>
+      <file name="fr8.html" crc="134706390" mt="1411905100000"/>
+    </folder>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="4021225061" ref="index:stue"/>
+    <file name="museutils.js" crc="4136605575" ref="index:stue"/>
+    <file name="webpro.js" crc="420478120" ref="index"/>
+    <file name="musewpslideshow.js" crc="480958572" ref="index"/>
+    <file name="jquery.museoverlay.js" crc="184401257" ref="index"/>
+    <file name="touchswipe.js" crc="60020316" ref="index"/>
+    <file name="jquery.scrolleffects.js" crc="4183300935" ref="index"/>
+    <file name="jquery.watch.js" crc="172956391" ref="index:stue"/>
+  </folder>
+  <folder name="images">
+    <file name="door.jpg" crc="3931260879" ref="index"/>
+    <file name="blank.gif" crc="4208392903" ref="index"/>
+    <file name="stue_peek.jpg" crc="3776599435" ref="index"/>
+    <file name="loading.gif" crc="3815509949" ref="index"/>
+    <file name="front.png" crc="3820010643" ref="index"/>
+    <file name="handrail.png" crc="3788595939" ref="index"/>
+    <file name="front_reverse.png" crc="3123219" ref="index"/>
+    <file name="stue_table_windows.jpg" crc="3941660492" ref="stue"/>
+    <file name="avis.png" crc="4265638660" ref="stue"/>
+    <file name="largeframe.png" crc="530371899" ref="stue"/>
+  </folder>
+  <file name="index.html" crc="3969249751" mt="1411906736803" redirect="true"/>
+  <file name="stue.html" crc="3900041001" mt="1411907135175" redirect="true"/>
+</manifest>
